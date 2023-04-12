@@ -24,9 +24,6 @@
     <%= car.price_per_day %>
   </p>
 
-  <p>
-    <strong>User:</strong>
-    <%= car.user_id %>
-  </p>
+   <%= image_tag car.car_image if car.car_image.attached? %>
 
 </div>
