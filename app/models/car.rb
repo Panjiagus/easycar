@@ -5,4 +5,5 @@ class Car < ApplicationRecord
   validates :address, presence: true
   validates :price_per_day, presence: true
   validates :price_per_day, numericality: { greater_than: 0 }
+  has_many :bookings,  dependent: :destroy
 end
