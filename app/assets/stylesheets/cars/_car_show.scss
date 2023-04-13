@@ -108,13 +108,13 @@
 }
 
 .appointment-card form {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .appointment-card .form-control {
   margin-bottom: 10px;
   border-radius: 8px;
-  height: 27px;
+  height: 15px;
   color:#84a1e4;
 }
 
@@ -164,7 +164,7 @@
   margin-top: 20px;
   margin-bottom: 20px;
   height: 380px;
-  background-color: #1b202d;
+  background-color: #666652;
   border-radius: 15px;
 }
 
@@ -183,7 +183,7 @@
 }
 
 .car-description-header{
-  color: white;
+  color: rgb(16, 11, 52);
   font-family: 'Skillet-Regular';
   font-size: 30pt;
   line-height: 0.8;

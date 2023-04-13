@@ -1,5 +1,3 @@
-
-
 <div class="car_container padding-top-pages">
   <div class="bread-crumbs">
     <div class="user-btn">
@@ -27,25 +25,14 @@
       </div>
 
       <%# BUTTON FOR BOOKING (from paws) %>
-
         <% if Booking.find_by(car: @car, user: current_user).present? %>
           <div class="cancel-btn">
-            <%= button_to 'Cancel Appointment', car_booking_path(@car.id), method: :delete, class: "btn btn-cancel" %>
+            <%= button_to 'Car is reserved', class: "btn btn-cancel" %>
           </div>
         <% else %>
-      <div class="appointment-card">
-        <form action=<%= "/cars/#{@car.id}/bookings" %> method="post" class="d-flex align-items-center justify-content-between">
-        <div class="mb-3">
-          <label for="appointmentdate" class="form-label">Pick A Date</label>
-          <input type="date" class="form-control py-3" id="appointmentdate" name="appointmentdate" >
-        </div>
-        <div class="mb-3">
-          <label for="appointmenttime" class="form-label">Pick A Time</label>
-          <input type="time" class="form-control py-3" id="appointmenttime" name="appointmenttime">
-        </div>
-        <button type="submit" class="btn btn-appointment">Create Booking</button>
-      </form>
-      </div>
+      <p class="car-description-paragraph">Welcome to our car rental service! We offer a wide range of vehicles to suit all your transportation needs, whether you're traveling for business or pleasure. Our fleet includes compact cars, sedans, SUVs, and luxury vehicles, all of which are well-maintained and regularly serviced to ensure maximum reliability.
+
+ </p>
         <% end %>
     </div>
   </div>
@@ -54,36 +41,9 @@
   <div class="car-description">
     <div class="description-text">
       <h5 class="car-description-header">Rent this <%= @car.brand %> with Easycar!</h5>
-      <p class="car-description-paragraph">Welcome to our car rental service! We offer a wide range of vehicles to suit all your transportation needs, whether you're traveling for business or pleasure. Our fleet includes compact cars, sedans, SUVs, and luxury vehicles, all of which are well-maintained and regularly serviced to ensure maximum reliability.
-
-We understand that every customer is unique, and that's why we offer flexible rental options to accommodate your specific needs. Whether you need a car for a few hours, a day, a week, or even longer, we've got you covered. Our rental rates are comcaritive, and we offer special discounts for long-term rentals and frequent renters. </p>
-
-    </div>
-    <!-- Image -->
-    <div class="car-description-right">
-      <%= image_tag "friends.jpg", alt: "", width:"80%" %>
-    </div>
-  </div>
-  </div>
-</div>
-
-<!-- ORIGINAL BOOKING FORM -->
 
 <% @bookings.each do |booking| %>
-
-    <p>
-    <%= booking.starts_at %>
-    </p>
-
-    <p>
-    <%= booking.ends_at %>
-    </p>
-
-    <p>
-    <%= booking.user.email %>
-    </p>
-  <% end %>
-
+<% end %>
 <%= simple_form_for(@booking) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -94,13 +54,25 @@ We understand that every customer is unique, and that's why we offer flexible re
     <%= f.association :car, as: :hidden, input_html: { value: @car.id} %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+
+<div class="form-group">
+  <div class="col-sm-offset-4 col-sm-10">
+    <input class="btn btn-primary" type="submit" value="Reserve Car" name="commit">
   </div>
+</div>
+
 <% end %>
 
-<div>
-  <%= link_to "Edit this car", edit_car_path(@car) %> |
-  <%= link_to "Back to cars", cars_path %>
-  <%= button_to "Destroy this car", @car, method: :delete %>
+    </div>
+    <!-- Image -->
+    <div class="car-description-right">
+      <%= image_tag "friends.jpg", alt: "", width:"80%" %>
+    </div>
+  </div>
+  </div>
 </div>
+
+
+<p>User need to login, in order to be able to reserve a car</p>
+<p>  email: "MargueriteDuras@gmail.net",
+  password: "123456"</p>
