@@ -1,0 +1,227 @@
+.car_container{
+  width: 90vw;
+  margin: 30px auto;
+}
+
+.bread-crumbs{
+  display:flex;
+  justify-content: space-between;
+}
+
+.user-btn a{
+  margin-top: 5px;
+  color: #84a1e4;
+  text-decoration: none;
+  font-family: "Neue-Haas-D-Medium";
+}
+
+
+.car_show_info{
+  display: flex;
+  height: 320px;
+}
+
+
+.car_show_img{
+  width: 50%;
+}
+
+.car_avatar{
+  border-radius: 15px;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.car-show-general{
+  display: flex;
+  width: 50%;
+  margin-left: 20px;
+  background-color: #243252;
+  border-radius: 15px;
+  padding: 15px 20px 15px 60px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.car-show-general-left{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 0px;
+  background-color: #84a1e4;
+  border-radius: 15px;
+  padding: 15px 20px 15px 50px;
+}
+
+.car-show-general-right {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 20px;
+  background-color: #84a1e4;
+  border-radius: 15px;
+  padding: 15px 20px 15px 60px;
+  position: relative;
+}
+
+.car-name-text{
+  color: white;
+  font-family: 'Skillet-Regular';
+  font-size: 60pt;
+  line-height: 0.8;
+  letter-spacing: 0.7pt;
+  margin-bottom: 0px;
+}
+
+.car-texts{
+  margin-bottom: 5px;
+  align-items: flex-end;
+  margin-top: 7px;
+}
+
+
+.car-details{
+  display: inline;
+  color: white;
+  font-family: "Neue-Haas-D-Medium";
+  font-size: 14pt;
+  line-height: 0.8;
+  letter-spacing: 0.7pt;
+}
+
+.car-detail-text{
+  color: white;
+  font-family: "Neue-Haas-D-Roman";
+  font-size: 14pt;
+  line-height: 0.8;
+  letter-spacing: 0.7pt;
+}
+
+
+// Button
+.appointment-card {
+  background-color: #243252;
+  border-radius: 15px;
+  margin-right: 50px;
+  margin-top: 10px;
+}
+
+.appointment-card form {
+  margin-bottom: 0;
+}
+
+.appointment-card .form-control {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  height: 27px;
+  color:#84a1e4;
+}
+
+.appointment-card .form-label {
+  color: white;
+  margin-bottom: 4px;
+}
+
+.appointment-card .btn-appointment {
+  background-color: #1ca35b;
+  color: #ffffff;
+  border-color: #1e48ab;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.appointment-card .btn-appointment:hover {
+  background: #18419f;
+  color: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.appointment-card .btn-primary:hover {
+  background-color: #18377e;
+  color: white;
+  border-color: white;
+}
+
+.btn-cancel{
+  margin-top: 1px;
+  background-color: #FAB2CC;
+  color: #ffffff;
+  border-color: #84a1e4;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn-cancel:hover {
+  background: #2039b7;
+  color: white;
+}
+
+.car-description {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 380px;
+  background-color: #1b202d;
+  border-radius: 15px;
+}
+
+
+.description-text{
+  width: 50%;
+  padding: 20px 50px;
+}
+.car-description-right{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 17px;
+  margin-left: 72px;
+}
+
+.car-description-header{
+  color: white;
+  font-family: 'Skillet-Regular';
+  font-size: 30pt;
+  line-height: 0.8;
+  letter-spacing: 0.7pt;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.car-description-paragraph{
+  display:flex;
+  color: white;
+  font-family: "Neue-Haas-D-Roman";
+  font-size: 12pt;
+  line-height: 1.3;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+.border-img {
+  border-radius: 15px;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+
+.margin{
+  margin-top: 20px;
+}
+
+.working-hour-margin{
+  margin-top: 10px;
+}
+
+.btn-favorite i {
+  transition: color 0.2s ease;
+}
+
+.btn-favorite .favorited {
+  color: red;
+}

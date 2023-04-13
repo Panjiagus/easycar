@@ -1,14 +1,22 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Cars</h1>
-
-<div id="cars">
-  <% @cars.each do |car| %>
-    <%= render car %>
-    <p>
-      <%= link_to "Show this car", car %>
-    </p>
-  <% end %>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-4 g-0">
+    <% @cars.each do |car| %>
+      <%# <% if car.photo.attached? %>
+        <div class="col-sm-4">
+        <div class="panel panel-primary">
+          <div class="card card-border m-3">
+            <%= image_tag car.car_image, height: 300, width: 400, crop: :fill, class: "card-img-top img-border" %>
+            <div class="card-body">
+              <p class="card-text mb-0"><%= car.address %></p>
+              <a href=<%= "/cars/#{car.id}" %> class="btn btn-outline-primary" role="button"><%= "€#{car.price_per_day}/day" %></a>
+              <% if Booking.find_by(car: car, user: current_user).present? %>
+              <button class="btn btn-outline-primary"> Booked </button>
+              <% end %>
+            </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
 </div>
-
-<%= link_to "New car", new_car_path %>

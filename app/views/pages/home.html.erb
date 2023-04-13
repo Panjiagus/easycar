@@ -1,2 +1,138 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+
+  <div class="home_banner">
+    <div class="banner-text">
+      <div>
+        <p class="main-text">FIND A CAR TO RENT </p>
+        <p class="main-text">IN ONE APP</p>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <div class="info-container">
+    <div class="text col-12 col-lg-4">
+      <h3 class="text-color">Car rental made Easy!</h3>
+      <p>Everything is done through one single application<p>
+
+      <div class="icon-container">
+        <i class="fa-solid fa-check"></i>
+        <span class="text">Find and book a car directly from your phone</span>
+      </div>
+
+       <div class="icon-container">
+        <i class="fa-solid fa-check"></i>
+        <span class="text">No more paperwork and reduce CO2 emission</span>
+      </div>
+
+      <div class="icon-container">
+        <i class="fa-solid fa-check"></i>
+        <span class="text">Flexibility to rent a car daily and hourly</span>
+      </div>
+
+      <!-- BOOKING FROM TO BE EDITED -->
+        <form action="/cars" class="form-inline padded">
+        <select name="" id="" class="form-control border-radius input-lg">
+          <option value="1">Paris</option>
+          <option value="2">London</option>
+          <option value="3">Berlin</option>
+          <option value="3">Barcelona</option>
+        </select>
+        <input type="date" name="checkin" class="form-control border-radius input-lg datepicker" placeholder="Checkin">
+        <input type="date" name="checkout" class="form-control border-radius input-lg datepicker" placeholder="Checkout">
+        <br>
+        <input type="submit" class="btn btn-outline-primary mb-2 mt-0" value="Search">
+      </form>
+      </div>
+
+    <div class="col-12 col-lg-8">
+      <%= image_tag "Car 8.jpg", alt: "", width: "100%" %>
+    </div>
+    </div>
+  <br>
+  <br>
+  <div class="text-center">
+    <h2><strong>Not only we have cars, we have trucks and many others</strong></h2>
+  </div>
+
+  <div class="info-container-text">
+    <p>Whatever type of cars you need, we got you covered!</p>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="container px-0">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <%= image_tag "Car 12.jpg", alt: "", height: "200px" %>
+          <div class="card-body">
+            <h5 class="card-title"><strong>The "Van" Gogh</strong></h5>
+            <p class="card-text mb-0">Oh the Vans! perfect or a roadtrip to the countryside with your bestfriends</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <%= image_tag "Car 9.jpg", alt: "", height: "200px" %>
+          <div class="card-body">
+            <h5 class="card-title"><strong>The Sedan</strong></h5>
+            <p class="card-text mb-0">New to the city? why not try our newest collection of Sedan to find the city's best hidden gems.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <%= image_tag "Car 11.jpg", alt: "", height: "200px" %>
+          <div class="card-body">
+            <h5 class="card-title"><strong>The "Truck" minator</strong></h5>
+            <p class="card-text mb-0">Getting a new job and need to move to another town? well rent our truck for as little as one hour!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active carousel">
+        <%= image_tag "Car 15.jpg", alt: "Le Wagon", width: "100%" %>
+      </div>
+      <div class="carousel-item carousel">
+        <%= image_tag "Car 2.jpg", alt: "Le Wagon",  width: "100%" %>
+      </div>
+      <div class="carousel-item carousel">
+        <%= image_tag "Car 4.jpg", alt: "Le Wagon",  width: "100%" %>
+      </div>
+      <div class="carousel-item carousel">
+        <%= image_tag "Car 6.jpg", alt: "Le Wagon",  width: "100%" %>
+      </div>
+      <div class="carousel-item carousel">
+        <%= image_tag "Car 3.jpg", alt: "Le Wagon",  width: "100%" %>
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <br>
+  <br>
+    <div class="banner-content">
+      <p><strong>Our collection of cars allow for flexible commitments to locations convenient for you and your loved ones. Book a temporary car at a short notice and without a hassle.</strong></p>
+    </div>
+  </div>
+
+  <% if user_signed_in? %>
+    <p><% "hello #{current_user.email}" %></p>
+  <% end  %>
+</div>

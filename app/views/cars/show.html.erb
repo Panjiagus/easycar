@@ -1,6 +1,73 @@
 
 
-<%= render @car %>
+<div class="car_container padding-top-pages">
+  <div class="bread-crumbs">
+    <div class="user-btn">
+      <a href="/cars"  role="button">← Back</a>
+    </div>
+  </div>
+  <div class="car_show_info">
+  <!-- Image -->
+    <div class="car_show_img">
+      <%= image_tag @car.car_image, class: "car_avatar" %>
+    </div>
+    <!-- Car Info -->
+    <div class="car-show-general">
+      <div class="car-show-info">
+        <h1 class="car-name-text"><%= @car.brand %></h1>
+        <br>
+          <div class="owner-btn">
+        </div>
+        <div class="car-texts">
+          <p class="car-details">Model: <span class="car-detail-text"><%= @car.model %> </span></p><br>
+          <p class="car-details">Address: <span class="car-detail-text"><%= @car.address %></span></p><br>
+          <p class="car-details">Price: <span class="car-detail-text"><%= "€#{@car.price_per_day}/day" %></span></p><br>
+        </div>
+        <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+      </div>
+
+      <%# BUTTON FOR BOOKING (from paws) %>
+
+        <% if Booking.find_by(car: @car, user: current_user).present? %>
+          <div class="cancel-btn">
+            <%= button_to 'Cancel Appointment', car_booking_path(@car.id), method: :delete, class: "btn btn-cancel" %>
+          </div>
+        <% else %>
+      <div class="appointment-card">
+        <form action=<%= "/cars/#{@car.id}/bookings" %> method="post" class="d-flex align-items-center justify-content-between">
+        <div class="mb-3">
+          <label for="appointmentdate" class="form-label">Pick A Date</label>
+          <input type="date" class="form-control py-3" id="appointmentdate" name="appointmentdate" >
+        </div>
+        <div class="mb-3">
+          <label for="appointmenttime" class="form-label">Pick A Time</label>
+          <input type="time" class="form-control py-3" id="appointmenttime" name="appointmenttime">
+        </div>
+        <button type="submit" class="btn btn-appointment">Create Booking</button>
+      </form>
+      </div>
+        <% end %>
+    </div>
+  </div>
+
+<!-- Car Description -->
+  <div class="car-description">
+    <div class="description-text">
+      <h5 class="car-description-header">Rent this <%= @car.brand %> with Easycar!</h5>
+      <p class="car-description-paragraph">Welcome to our car rental service! We offer a wide range of vehicles to suit all your transportation needs, whether you're traveling for business or pleasure. Our fleet includes compact cars, sedans, SUVs, and luxury vehicles, all of which are well-maintained and regularly serviced to ensure maximum reliability.
+
+We understand that every customer is unique, and that's why we offer flexible rental options to accommodate your specific needs. Whether you need a car for a few hours, a day, a week, or even longer, we've got you covered. Our rental rates are comcaritive, and we offer special discounts for long-term rentals and frequent renters. </p>
+
+    </div>
+    <!-- Image -->
+    <div class="car-description-right">
+      <%= image_tag "friends.jpg", alt: "", width:"80%" %>
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- ORIGINAL BOOKING FORM -->
 
 <% @bookings.each do |booking| %>
 
@@ -22,10 +89,9 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :starts_at, as: :string %>
-    <%= f.input :ends_at, as: :string %>
+    <%= f.input :starts_at %>
+    <%= f.input :ends_at %>
     <%= f.association :car, as: :hidden, input_html: { value: @car.id} %>
-    <%= f.input :accepted %>
   </div>
 
   <div class="form-actions">
@@ -36,6 +102,5 @@
 <div>
   <%= link_to "Edit this car", edit_car_path(@car) %> |
   <%= link_to "Back to cars", cars_path %>
-
   <%= button_to "Destroy this car", @car, method: :delete %>
 </div>
